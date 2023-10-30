@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+ <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button> </ion-button>
+    </ion-buttons>
+    <ion-title class="text-center">Login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>  </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-content>
+    <img src="assets/logo.jpeg" class="mx-auto">
+    <ion-item lines="none">
+        <ion-label class="my-0">
+          Mobile No.
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Enter Mobile No." type="number">
+        </ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="my-0">
+          OTP
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input mode="ios" placeholder="Enter OTP" type="number">
+        </ion-input>
+      </ion-item>
+      <ion-button expand="block" mode="ios">Login</ion-button>
+  </ion-content>
