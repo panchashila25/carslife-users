@@ -9,11 +9,17 @@ import { CardsComponent } from './cards/cards.component';
 })
 export class DashboardComponent  implements OnInit {
    component=CardsComponent
+   isFromDateModalOpen = false;
+   selectedDate:any = "";
+   selectedTime:any="";
 
   constructor(private router:Router) { }
 
   ngOnInit() {}
 
+  setFromOpen(){
+    this.isFromDateModalOpen = !this.isFromDateModalOpen;
+  }
   
 
 }
