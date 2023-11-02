@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { IonicModule } from '@ionic/angular';
-import { NgOtpInputModule } from  'ng-otp-input';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgOtpInputModule
+    
   ]
 })
 export class AuthModule { }
