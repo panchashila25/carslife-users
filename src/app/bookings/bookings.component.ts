@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingsComponent  implements OnInit {
 
+  segment:any = "Upcoming";
   constructor() { }
 
   ngOnInit() {}
 
+  changeSegment(event:any){
+    this.segment = event.detail.value
+  }
 }

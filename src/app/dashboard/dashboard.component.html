@@ -8,83 +8,96 @@
     <div class="relative">
       <ion-card color="secondary" mode="ios" class="m-6 w-auto">
         <ion-card-content>
-       
-        <ion-item lines="none" color="light" class="rounded">
-          <ion-icon name="pin" slot="start" color="primary"></ion-icon>
-          <ion-input label="Pickup Location" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
-
-          </ion-input>
-        </ion-item>
-        <ion-item lines="none" color="light" class="rounded">
-          <ion-icon name="navigate-circle" slot="start" color="primary"></ion-icon>
-          <ion-input label="Drop Location" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
-
-          </ion-input>
-        </ion-item>
-        <ion-item lines="none" color="light" class="rounded">
-          <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
-          <ion-input label="Pickup Date & Time" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
-
-          </ion-input>
-        </ion-item>
-        <ion-item lines="none" color="light" class="rounded">
-          <ion-checkbox name="calendar" slot="start" color="primary" class="rounded-none" (ionchange)="setFromOpen()"></ion-checkbox>
-          <ion-item label="I need a round trip" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
-            I need a round Trip
+          <ion-item lines="none" color="light" class="rounded">
+            <ion-icon name="pin" slot="start" color="primary"></ion-icon>
+            <ion-input
+              label="Pickup Location"
+              labelPlacement="stacked"
+              class="text-[#3D348B]"
+              color="primary"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none" color="light" class="rounded">
+            <ion-icon
+              name="navigate-circle"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-input
+              label="Drop Location"
+              labelPlacement="stacked"
+              class="text-[#3D348B]"
+              color="primary"
+            >
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none" color="light" class="rounded">
+            <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
+            <ion-input
+              label="Pickup Date & Time"
+              (click)="timeOpen()"
+              placeholder="{{ selectedTime | date : 'dd MMM, yyyy , hh mm' }}"
+              labelPlacement="stacked"
+              class="text-[#3D348B]"
+              color="primary"
+            >
+            </ion-input>
+            <ion-modal [isOpen]="istimeOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Select Date</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="timeOpen()">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                  <ion-datetime
+                    showDefaultButtons="true"
+                    [(ngModel)]="selectedTime"
+                  ></ion-datetime>
+                </ion-header>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+          <ion-item lines="none" color="light" class="rounded">
+            <ion-checkbox
+              name="calendar"
+              slot="start"
+              color="primary"
+              class="rounded-none"
+              (ionChange)="setFromOpen()"
+            ></ion-checkbox>
+            <ion-input
+              label="I need a round trip"
+              placeholder="{{ selectedDate | date : 'dd MMM, yyyy ,hh  mm' }}"
+              labelPlacement="stacked"
+              class="text-[#3D348B]"
+              color="primary"
+            >
+            </ion-input>
             <ion-modal [isOpen]="isFromDateModalOpen">
               <ng-template>
                 <ion-header>
                   <ion-toolbar>
                     <ion-title>Select Date</ion-title>
                     <ion-buttons slot="end">
-                      <ion-button (ionchange)="setFromOpen()">Close</ion-button>
+                      <ion-button (click)="setFromOpen()">Close</ion-button>
                     </ion-buttons>
                   </ion-toolbar>
-                  <ion-datetime showDefaultButtons="true"  [(ngModel)]="selectedDate"></ion-datetime>
+                  <ion-datetime
+                    showDefaultButtons="true"
+                    [(ngModel)]="selectedDate"
+                  ></ion-datetime>
                 </ion-header>
               </ng-template>
             </ion-modal>
           </ion-item>
-        </ion-item>
 
-        <ion-button mode="ios" expand="block">Find</ion-button>
-      </ion-card-content>
-        <!-- <div color="secondary" class="mx-4"><ion-input class=""
-          aria-label="Boarding From ?"
-          placeholder="Boarding From "
-          class="custom"
-          [counter]="true"
-        ></ion-input>
-        </div>
-      <div color="secondary" class="mx-4">
-        <ion-input
-          aria-label="Where are you going?"
-          placeholder="Where are you going?"
-          class="custom"
-          [counter]="true"
-        ></ion-input>
-        </div>
-        <ion-item color="secondary" class="custom">
-          <ion-icon class="fon" slot="start" name="calendar"></ion-icon>
-          <ion-input
-          aria-label="Pickup Date & Time"
-          placeholder="Pickup Date & Time"
-          
-          [counter]="true"
-        ></ion-input>
-        </ion-item>
-        <div color="secondary" class="mx-4 flex "> 
-          <ion-icon class="mt-10 fon" name="calendar"></ion-icon>
-          <ion-input
-          aria-label="Pickup Date & Time"
-          placeholder="Pickup Date & Time"
-          class="custom"
-          [counter]="true"
-        ></ion-input>
-      </div> -->
-         </ion-card>
+          <ion-button mode="ios" expand="block" class="mt-2">Find</ion-button>
+        </ion-card-content>
+      </ion-card>
       <h1></h1>
     </div>
   </div>
 </ion-content>
-

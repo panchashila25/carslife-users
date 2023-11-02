@@ -10,6 +10,7 @@ import { CardsComponent } from './cards/cards.component';
 export class DashboardComponent  implements OnInit {
    component=CardsComponent
    isFromDateModalOpen = false;
+   istimeOpen= false ;
    selectedDate:any = "";
    selectedTime:any="";
 
@@ -19,6 +20,10 @@ export class DashboardComponent  implements OnInit {
 
   setFromOpen(){
     this.isFromDateModalOpen = !this.isFromDateModalOpen;
+  }
+
+  timeOpen(){
+    this.istimeOpen = !this.istimeOpen;
   }
   
 
