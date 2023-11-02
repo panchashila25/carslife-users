@@ -1,156 +1,90 @@
-<!-- <ion-searchbar></ion-searchbar> -->
-
 <ion-content>
-  <!-- <img src="assets/icon/rentlogo.jpeg" class="mx-auto" /> -->
+  <div class="h-72 bg-[#3D348B] relative">
+    <h2 class="pt-10 ml-7 font-bold text-2xl text-white">Hey Jhon!</h2>
+    <br />
+    <span class="ml-7 font-bold text-xl text-white"
+      >Where do you want to go?</span
+    >
+    <div class="relative">
+      <ion-card color="secondary" mode="ios" class="m-6 w-auto">
+        <ion-card-content>
+       
+        <ion-item lines="none" color="light" class="rounded">
+          <ion-icon name="pin" slot="start" color="primary"></ion-icon>
+          <ion-input label="Pickup Location" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
 
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon
-                name="pin-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Outstation One Way</ion-card-subtitle
-            >
-          </ion-card-header>
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none" color="light" class="rounded">
+          <ion-icon name="navigate-circle" slot="start" color="primary"></ion-icon>
+          <ion-input label="Drop Location" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
 
-          <ion-card-content> </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6" size-md="4" size-lg="2">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title
-              ><ion-icon
-                name="navigate-circle-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Outstation Round Trip</ion-card-subtitle
-            >
-          </ion-card-header>
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none" color="light" class="rounded">
+          <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
+          <ion-input label="Pickup Date & Time" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
 
-          <ion-card-content> </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none" color="light" class="rounded">
+          <ion-checkbox name="calendar" slot="start" color="primary" class="rounded-none" (ionchange)="setFromOpen()"></ion-checkbox>
+          <ion-item label="I need a round trip" labelPlacement="stacked" class="text-[#3D348B]" color="primary">
+            I need a round Trip
+            <ion-modal [isOpen]="isFromDateModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Select Date</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (ionchange)="setFromOpen()">Close</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                  <ion-datetime showDefaultButtons="true"  [(ngModel)]="selectedDate"></ion-datetime>
+                </ion-header>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </ion-item>
 
-    <ion-row>
-      <ion-col size="6" size-md="4" size-lg="2">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon
-                name="hourglass-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Hourly Rentals</ion-card-subtitle
-            >
-          </ion-card-header>
-
-          <ion-card-content> </ion-card-content>
-        </ion-card>
-      </ion-col>
-      
-      <ion-col size="6" size-md="4" size-lg="2">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon
-                name="car-sport-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Self Drive Cars</ion-card-subtitle
-            >
-          </ion-card-header>
-
-          <ion-card-content></ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-  <!-- <ion-card color="">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3"
-          ><ion-icon
-            name="phone-portrait-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          ></ion-icon
-        ></ion-col>
-        <ion-col size="3"
-          ><ion-icon
-            name="navigate-circle-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          >
-          </ion-icon>
-        </ion-col>
-        <ion-col size="3"
-          ><ion-icon
-            name="medkit-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          >
-          </ion-icon
-        ></ion-col>
-        <ion-col size="3"
-          ><ion-icon
-            name="notifications-circle-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          >
-            ></ion-icon
-          ></ion-col
-        >
-      </ion-row>
-    </ion-grid>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Exclusive App-only Discounts</ion-col
-        >
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Track live location of your driver</ion-col
-        >
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Complimentary travel kit for your trip</ion-col
-        >
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Limited-time price-drops notifications</ion-col
-        >
-      </ion-row>
-    </ion-grid>
-  </ion-card> -->
-  <!-- <ion-grid class="text-center mt-16">
-    <ion-icon name="construct-outline"></ion-icon>
-    Make In India
-  </ion-grid> -->
+        <ion-button mode="ios" expand="block">Find</ion-button>
+      </ion-card-content>
+        <!-- <div color="secondary" class="mx-4"><ion-input class=""
+          aria-label="Boarding From ?"
+          placeholder="Boarding From "
+          class="custom"
+          [counter]="true"
+        ></ion-input>
+        </div>
+      <div color="secondary" class="mx-4">
+        <ion-input
+          aria-label="Where are you going?"
+          placeholder="Where are you going?"
+          class="custom"
+          [counter]="true"
+        ></ion-input>
+        </div>
+        <ion-item color="secondary" class="custom">
+          <ion-icon class="fon" slot="start" name="calendar"></ion-icon>
+          <ion-input
+          aria-label="Pickup Date & Time"
+          placeholder="Pickup Date & Time"
+          
+          [counter]="true"
+        ></ion-input>
+        </ion-item>
+        <div color="secondary" class="mx-4 flex "> 
+          <ion-icon class="mt-10 fon" name="calendar"></ion-icon>
+          <ion-input
+          aria-label="Pickup Date & Time"
+          placeholder="Pickup Date & Time"
+          class="custom"
+          [counter]="true"
+        ></ion-input>
+      </div> -->
+         </ion-card>
+      <h1></h1>
+    </div>
+  </div>
 </ion-content>
+
