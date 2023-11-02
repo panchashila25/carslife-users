@@ -1,22 +1,28 @@
 
-<ion-card></ion-card>
-   <ion-content class="ios">
-  <img  src="assets/icon/logo.png" class="mx-auto -mt-32 -mb-20">
+<ion-content class="">
+
+  <img src="assets/icon/logo.png" class="mx-auto ">
   <ion-item lines="none">
-    <ion-title class="text-center text-2xl font-semibold" >    <h2>  Welcome  <br>
-    </h2> <SPAN class="text-center text-sm" >  You are just one step away</SPAN>
+    <ion-title class="text-center text-2xl font-semibold text-black ">
+      <h2> Welcome <br>
+      </h2> <SPAN class="text-center text-sm text-black "> You are just one step away</SPAN>
     </ion-title>
-    </ion-item>
- 
-    <ion-input class="border m-10 rounded-2xl mx-auto w-96 focus:outline-none input" placeholder="Custom input"  >
-</ion-input>
-<div class="flex">
-  <ion-input class="border m-10 rounded-2xl ml-auto w-10 focus:outline-none input" placeholder="Custom input"  >
-  </ion-input>
-  <ion-input class="border m-10 rounded-2xl  w-10 focus:outline-none input" placeholder="Custom input"  >
-  </ion-input>
-  <ion-input class="border m-10 rounded-2xl  w-10 focus:outline-none input" placeholder="Custom input"  >
-  </ion-input>
-  <ion-input class="border m-10 rounded-2xl  w-10 focus:outline-none input" placeholder="Custom input"  >
-  </ion-input>
-</div>
+  </ion-item>
+  <ion-item lines="none" class="border m-10 rounded-2xl mx-auto w-auto md:w-96 mt-20  flex ">
+    <ion-icon slot="start" name="call-outline"></ion-icon>
+    <ion-input class=" focus:outline-none input w-auto" placeholder=" Mobile no">
+    </ion-input>
+  </ion-item>
+
+  <ng-otp-input class="flex justify-center" [config]="{length:4}"></ng-otp-input>
+  <ion-button shape="round" class="flex justify-center mx-auto w-auto mt-20 h-12 md:w-96  "
+    color="secondary">Continue</ion-button>
+
+  <div class="text-center mt-8 text-xs">By Clicking on Continue, you are agree to <br>
+    <span class="text-orange-500">Privacy Policy</span>
+    and <span  class="text-orange-500">Terms & Conditions</span>
+  </div>
+</ion-content>
+
+
+

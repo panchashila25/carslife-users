@@ -1,3 +1,27 @@
-<p>
-  bookings works!
-</p>
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-segment value="{{segment}}" (ionChange)="changeSegment($event)">
+    <ion-segment-button value="Upcoming" >
+      <ion-label color="secondary">Upcoming</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Completed">
+      <ion-label color="secondary">Completed</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Cancelled">
+      <ion-label color="secondary">Cancelled</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="segment == 'Upcoming'">
+    Upcoming Works
+  </div>
+  <div *ngIf="segment == 'Completed'">
+    Completed Works
+  </div>
+  <div *ngIf="segment == 'Cancelled'">
+    Cancelled Works
+  </div>
+</ion-content>
