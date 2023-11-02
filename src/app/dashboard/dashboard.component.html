@@ -1,156 +1,27 @@
-<!-- <ion-searchbar></ion-searchbar> -->
-
 <ion-content>
-  <!-- <img src="assets/icon/rentlogo.jpeg" class="mx-auto" /> -->
-
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon
-                name="pin-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Outstation One Way</ion-card-subtitle
-            >
-          </ion-card-header>
-
-          <ion-card-content> </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6" size-md="4" size-lg="2">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title
-              ><ion-icon
-                name="navigate-circle-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Outstation Round Trip</ion-card-subtitle
-            >
-          </ion-card-header>
-
-          <ion-card-content> </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="6" size-md="4" size-lg="2">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon
-                name="hourglass-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Hourly Rentals</ion-card-subtitle
-            >
-          </ion-card-header>
-
-          <ion-card-content> </ion-card-content>
-        </ion-card>
-      </ion-col>
-      
-      <ion-col size="6" size-md="4" size-lg="2">
-        <ion-card color="primary" [routerLink]="['/tabs/dashboard/cards']">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon
-                name="car-sport-outline"
-                style="font-size: larger; margin: 0 auto; display: block"
-              ></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle style="font-size: large; text-align: center"
-              >Self Drive Cars</ion-card-subtitle
-            >
-          </ion-card-header>
-
-          <ion-card-content></ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-  <!-- <ion-card color="">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3"
-          ><ion-icon
-            name="phone-portrait-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          ></ion-icon
-        ></ion-col>
-        <ion-col size="3"
-          ><ion-icon
-            name="navigate-circle-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          >
-          </ion-icon>
-        </ion-col>
-        <ion-col size="3"
-          ><ion-icon
-            name="medkit-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          >
-          </ion-icon
-        ></ion-col>
-        <ion-col size="3"
-          ><ion-icon
-            name="notifications-circle-outline"
-            style="
-              font-size: x-large;
-              margin: 0 auto;
-              display: block;
-              font-weight: bolder;
-            "
-          >
-            ></ion-icon
-          ></ion-col
-        >
-      </ion-row>
-    </ion-grid>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Exclusive App-only Discounts</ion-col
-        >
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Track live location of your driver</ion-col
-        >
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Complimentary travel kit for your trip</ion-col
-        >
-        <ion-col size="3" style="font-size: small; text-align: center"
-          >Limited-time price-drops notifications</ion-col
-        >
-      </ion-row>
-    </ion-grid>
-  </ion-card> -->
-  <!-- <ion-grid class="text-center mt-16">
-    <ion-icon name="construct-outline"></ion-icon>
-    Make In India
-  </ion-grid> -->
+  <div class="h-72 bg-[#3D348B] relative">
+    <h2 class="pt-10 ml-7 font-bold text-2xl text-white">Hey Jhon!</h2>
+    <br />
+    <span class="ml-7 font-bold text-xl text-white"
+      >Where do you want to go?</span
+    >
+    <div class="relative">
+      <ion-card color="secondary" class="h-72 m-6 w-auto">
+        <ion-input class="inputs"
+          aria-label="Boarding From ?"
+          placeholder="Boarding From "
+          class="custom"
+          [counter]="true"
+        ></ion-input>
+        <ion-input
+          aria-label="Where are you going?"
+          placeholder="Where are you going?"
+          class="custom"
+          [counter]="true"
+        ></ion-input>
+      </ion-card>
+      <h1></h1>
+    </div>
+  </div>
 </ion-content>
+
