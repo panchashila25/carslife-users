@@ -1,14 +1,29 @@
- <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button> </ion-button>
-    </ion-buttons>
-   
-    <ion-buttons slot="end">
-      <ion-button>  </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-content class="ios">
-    <img  src="assets/icon/logo.png" class="mx-auto my-0">
-    <ion-item lines="none">
-      <ion-title class="text-center text-2xl" >      Welcome
-      </ion-title>
+<ion-card></ion-card>
+   <ion-content class="ios">
+  <img  src="assets/icon/logo.png" class="mx-auto -mt-32 -mb-20">
+  <ion-item lines="none">
+    <ion-title class="text-center text-2xl font-semibold " >    <h2>  Welcome  <br>
+    </h2> <SPAN class="text-center text-sm" >  You are just one step away</SPAN>
+    </ion-title>
+    </ion-item>
+ <div class="border m-10 rounded-2xl mx-auto w-96 mt-20  flex ">
+   <ion-icon class="pt-4 px-4" name="call-outline"></ion-icon>
+  <ion-input class=" focus:outline-none input w-80" placeholder=" Mobile no"  >
+  </ion-input>
+ </div>
+  
+<div class="flex justify-center mx-auto">
+  <ion-input class="border  rounded-xl text-center ml-4   w-10 focus:outline-none input"   >
+  </ion-input>
+  <ion-input class="border  rounded-xl text-center ml-4  w-10 focus:outline-none input"  >
+  </ion-input>
+  <ion-input class="border  rounded-xl text-center ml-4  w-10 focus:outline-none input"   >
+  </ion-input>
+  <ion-input class="border  rounded-xl text-center ml-4  w-10 focus:outline-none input"   >
+  </ion-input>
+</div>
+<ion-button  shape="round" class="flex justify-center mx-auto w-72 mt-20 h-12  "  >Continue</ion-button>
+ 
+<div class="text-center mt-8 text-xs" >By Clicking on Continue, you are agree to <br> 
+  <span class="text-orange-500">Privacy Policy</span> 
+   and <span class="text-orange-500">Terms & Conditions</span></div>
