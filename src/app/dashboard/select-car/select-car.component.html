@@ -1,0 +1,202 @@
+<ion-content>
+
+
+
+  <div class="md:w-96 w-full mx-auto">
+
+    <div class="w-full">
+      <ion-card lines="none" class="bg-[#3D348B]  h-72  w-full   md:w-96 mx-auto  ">
+        <ion-card-content>
+          <ion-icon class="   text-xl text-white " name="arrow-back-outline"></ion-icon>
+
+          <ion-card-subtitle class="  text-center text-white">Bangalore - local 8 hr | 80km</ion-card-subtitle>
+          <ion-card-subtitle class="  text-center text-white">22-11-2023 | 40:00 pm <br>
+            <button class="text-orange-300  border-none  mx-auto">Modify Booking</button>
+          </ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div>
+      <ion-card class="  h-60 w-auto rounded-2xl ml-4 mr-4 mx-auto  pt-2  -mt-40 ybox">
+        <ion-card-subtitle class="mx-4  w-auto"> Fare Details </ion-card-subtitle>
+        <ion-card class="w-auto rounded-lg ">
+
+          <ion-segment class="w-80 ml-1 flex " value="{{segment}}" (ionChange)="changeSegment($event)">
+            <button value="Inclusions" class=" p-2  px-6  hover:bg-gray-300">
+              <ion-label color="secondary ">Inclusions</ion-label>
+            </button>
+            <button value="Exclusions" class=" px-6 hover:bg-gray-300">
+              <ion-label color="secondary">Exclusions</ion-label>
+            </button>
+            <button value="T&C" class=" px-6 hover:bg-gray-300">
+              <ion-label color="secondary">T&C</ion-label>
+            </button>
+          </ion-segment>
+          <div *ngIf="segment == 'Inclusions'">
+            <ion-card-subtitle class="mx-4 p-2  w-auto text-black ">
+              <ul class="font-xs">
+                <li>
+                  <ion-icon name="water-outline" class="pr-5 "></ion-icon> Fule Charges
+                </li>
+                <li>
+                  <ion-icon name="man-outline" class="pr-5 "></ion-icon> Driver Allowance
+                </li>
+                <li>
+                  <ion-icon name="wallet-outline" class="pr-5 "></ion-icon> Toll / State Tax
+                </li>
+                <li>
+                  <ion-icon name="newspaper-outline" class="pr-5 "></ion-icon> GST (5%)
+                </li>
+
+              </ul>
+
+            </ion-card-subtitle>
+
+          </div>
+          <div *ngIf="segment == 'Exclusions'">
+           
+            <ul class="mx-4 text-black p-3">
+              <li class="flex">
+                <img src="assets/icon/mony.png" class="h-4 w-4 mx-2 ">Pay 17/km after 200km
+              </li>
+              <li class="flex">
+                <img src="assets/icon/parking.png" class="h-4 w-4 mx-2 ">Parking
+              </li>
+           
+
+            </ul>
+
+          </div>
+          <div *ngIf="segment == 'T&C'">
+            <dl class="ml-2 tnc  ">
+              <li>Your Trip has a KM limit. If your usage exceeds this limit,
+                you will be charged for the excess км used.</li>
+              <li>The Airport entry charge. if applicable, is not included in
+                the fare and will be charged extra.</li>
+              <li>Your trip includes one pick up in Pick-up city and one drop
+                to destination city. It does not include within city travel.</li>
+                <li>If your Trip has Hill climbs. cab AC may be switched off
+                  during such climbs.</li>
+            </dl> 
+
+            
+
+
+
+
+
+
+
+          </div>
+        </ion-card>
+      </ion-card>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="">
+      <ion-card class=" bg-white rounded-2xl  h-52 w-auto ml-4 mr-4 mx-auto grid grid-cols-6 pt-2  ybox">
+
+        <ion-card-subtitle class=" col-span-2 ml-3 block">
+          <span class="text-black  text_card">
+            Etios or <br> Equivalent
+          </span> <br>
+          <span class="text-blue-700 text-xl font-semibold">₹ 5252</span> <br>
+          <span class="text-red-400 text-sm line-through	 ">₹ 6252</span> <br>
+          <span class="text-black  textxs">up to 200 kms</span>
+
+
+
+        </ion-card-subtitle>
+
+        <ion-segment class="col-span-4 bg-white ">
+          <img src="assets/icon/select-car.png" class=" ">
+
+
+
+        </ion-segment>
+        <div class="col-span-6 flex">
+          <span class="col-span-2 ml-3 texts text-black  ">
+            All Inclusions
+          </span>
+          <span class="col-span-4 ml-12 texts flex  text-black  ">
+            <img src="assets/icon/seat.png" class="h-4 w-4 mx-2 ">
+            4 Seater
+          </span>
+          <span class="col-span-4 ml-3 texts flex text-black  ">
+            <img src="assets/icon/bag.png" class="h-4 w-4 mx-2 ">
+           2 Bags
+          </span>
+          <span class="col-span-4 ml-2 texts flex text-black  ">
+            <img src="assets/icon/ac.png" class="h-4 w-4 mx-2 ">
+          AC
+          </span>
+        </div>
+        <button class=" col-span-6 m-4 p-2 rounded-2xl bg-blue-800 text-black text-center">Select Car</button>
+
+
+      </ion-card>
+    </div>
+
+    
+
+
+    <div class="">
+      <ion-card class=" bg-white rounded-2xl  h-52 w-auto ml-4 mr-4 mx-auto grid grid-cols-6 pt-2  ybox">
+
+        <ion-card-subtitle class=" col-span-2 ml-3 block">
+          <span class="text-black  text_card">
+            Etios or <br> Equivalent
+          </span> <br>
+          <span class="text-blue-700 text-xl font-semibold">₹ 5252</span> <br>
+          <span class="text-red-400 text-sm line-through	 ">₹ 6252</span> <br>
+          <span class="text-black  textxs">up to 200 kms</span>
+
+
+
+        </ion-card-subtitle>
+
+        <ion-segment class="col-span-4 bg-white ">
+          <img src="assets/icon/select-car.png" class=" ">
+
+
+
+        </ion-segment>
+        <div class="col-span-6 flex">
+          <span class="col-span-2 ml-3 texts text-black  ">
+            All Inclusions
+          </span>
+          <span class="col-span-4 ml-12 texts flex  text-black  ">
+            <img src="assets/icon/seat.png" class="h-4 w-4 mx-2 ">
+            4 Seater
+          </span>
+          <span class="col-span-4 ml-3 texts flex text-black  ">
+            <img src="assets/icon/bag.png" class="h-4 w-4 mx-2 ">
+           2 Bags
+          </span>
+          <span class="col-span-4 ml-2 texts flex text-black  ">
+            <img src="assets/icon/ac.png" class="h-4 w-4 mx-2 ">
+          AC
+          </span>
+        </div>
+        <button class=" col-span-6 m-4 p-2 rounded-2xl bg-blue-800 text-black text-center">Select Car</button>
+
+
+      </ion-card>
+    </div>
+    
+    
+  </div>
+
+
+
+</ion-content>

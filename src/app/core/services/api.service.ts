@@ -89,6 +89,13 @@ register(data:any){
   }))
   }
 
+    // Create dealers
+    searchPlaces(query: any) {
+      return this.http.get < any > (`${environment.baseURL}comman/searchPlaces?search=`+query)
+        .pipe(map((data: any) => {
+          return data;
+        }));
+    }
 
 
   // Create dealers
