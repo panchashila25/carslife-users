@@ -7,15 +7,17 @@ import { DashboardComponent } from './dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { FormsModule } from '@angular/forms';
 import { SelectCarComponent } from './select-car/select-car.component';
+import { PageComponent } from './page/page.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent,CardsComponent,SelectCarComponent],
+  declarations: [DashboardComponent,CardsComponent,SelectCarComponent,PageComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     IonicModule.forRoot(),
     FormsModule,
+    
     
   ]
 })
