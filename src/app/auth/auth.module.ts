@@ -20,6 +20,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
     FormsModule,
     ReactiveFormsModule,
     NgOtpInputModule
+    
   ]
 })
 export class AuthModule { }
