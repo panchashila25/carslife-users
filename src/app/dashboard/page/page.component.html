@@ -6,9 +6,9 @@
 
 </ion-header>
 <ion-content> 
-  <ion-list [hidden]="searchesData.length === 0">
-    <ion-item *ngFor="let item of searchesData" tappable (click)="SelectSearchResult(item)">
-      {{ item.label }}
+  <ion-list [hidden]="searchesData.length === 0" >
+    <ion-item *ngFor="let item of searchesData" tappable (click)="SelectSearchResult(item)" [(ngModel)]="selectedPlace" >
+      {{ item.label }}  
     </ion-item>
   </ion-list>
 </ion-content>

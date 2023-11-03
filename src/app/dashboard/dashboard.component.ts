@@ -13,6 +13,7 @@ export class DashboardComponent  implements OnInit {
    istimeOpen= false ;
    selectedDate:any = "";
    selectedTime:any="";
+   selectedPlace:any="";
 
   constructor(private router:Router) { }
 

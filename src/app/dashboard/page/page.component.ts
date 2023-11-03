@@ -28,6 +28,7 @@ export class PageComponent implements OnInit {
   placeid: any;
   GoogleAutocomplete: any;
   searchesData:any = [];
+  selectedPlace:any="";
 
  
   constructor(
@@ -115,7 +116,7 @@ export class PageComponent implements OnInit {
   //wE CALL THIS FROM EACH ITEM.
   SelectSearchResult(item: { place_id: any; }) {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
-    alert(JSON.stringify(item))      
+    // alert(JSON.stringify(item))      
     this.placeid = item.place_id
   }
   
