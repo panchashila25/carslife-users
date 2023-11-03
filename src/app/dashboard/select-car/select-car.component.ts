@@ -10,8 +10,20 @@ export class SelectCarComponent  implements OnInit {
    isFromDateModalOpen = false;
    selectedDate:any = "";
    selectedTime:any="";
+   segment:any = "Upcoming";
+  
+   istimeOpen= false ;
+ 
   constructor() { }
 
   ngOnInit() {}
-
+  changeSegment(event:any){
+    this.segment = event.detail.value
+  }
+  setFromOpen(){
+    this.isFromDateModalOpen = !this.isFromDateModalOpen;
+  }
+  timeOpen(){
+    this.istimeOpen = !this.istimeOpen;
+  }
 }

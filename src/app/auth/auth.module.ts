@@ -18,6 +18,10 @@ import { IonicModule } from '@ionic/angular';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
+    NgOtpInputModule
+=======
+>>>>>>> 645f0591ac17e513e37ec196d71e80b4ad116884
     
   ]
 })
