@@ -116,8 +116,7 @@ register(data:any){
   sendOTP(data: any) {
     return this.http.post<any>(`${environment.baseURL}auth/sendOTP`, data, { 
       headers:
-       { 'Content-Type': 'application/json' }
-       })
+       { 'Content-Type': 'application/json' } })
       .pipe(map((data: any) => {
         return data;
       }));

@@ -23,7 +23,8 @@ export class LoginComponent  implements OnInit {
   isSendOTP: any;
   isOTPSent = false;
   isRegister = false;
-  constructor(public api:ApiService,public toast:ToastController, public router:Router,public routes:ActivatedRoute ){}
+  auth: any;
+  constructor(public api:ApiService,public toast:ToastController, public router:Router,public routes:ActivatedRoute,  ){}
   ngOnInit(): void {
     
 
@@ -102,10 +103,13 @@ export class LoginComponent  implements OnInit {
     const data = JSON.stringify({
     mobile:this.mobile,
     otp:this.otp
+
       
     })
     this.api.login(data).subscribe((cdata:any)=>{
       console.log(cdata);
+      localStorage.setItem('currentUser', JSON.stringify(cdata.data));
+      this.auth.currentUserSubject.next(cdata.data);
     },error =>{
       this.presentToast("danger",error.message)
     })

@@ -1,45 +1,82 @@
-
 <ion-content class="">
-
-  <img src="assets/icon/logo.png" class="mx-auto ">
+  <img src="assets/icon/logo.png" class="mx-auto" />
   <ion-item lines="none">
-    <ion-title class="text-center text-2xl font-semibold text-black ">
-      <h2> Welcome <br>
-      </h2> <SPAN class="text-center text-sm text-black "> You are just one step away</SPAN>
+    <ion-title class="text-center text-2xl font-semibold text-black">
+      <h2>Welcome <br /></h2>
+      <SPAN class="text-center text-sm text-black">
+        You are just one step away</SPAN
+      >
     </ion-title>
   </ion-item>
-  <ion-item lines="none" class="border m-10 rounded-2xl mx-auto w-auto md:w-96 mt-20  flex ">
+  <ion-item
+    lines="none"
+    class="border m-4 rounded-2xl mx-auto w-auto md:w-96 mt-20 flex"
+  >
     <ion-icon slot="start" name="call-outline"></ion-icon>
-    <ion-input type="number"  class=" focus:outline-none input w-auto inputmode" placeholder=" Mobile no" [(ngModel)]="mobile" [ngModelOptions]="{standalone:true}"  (keyup)="mobileCheck($event)"  pattern="[0-9]{10}" (input)="onMobileInput($event)">
+    <ion-input
+      type="number"
+      class="focus:outline-none input w-auto inputmode"
+      placeholder=" Mobile no"
+      [(ngModel)]="mobile"
+      [ngModelOptions]="{ standalone: true }"
+      (keyup)="mobileCheck($event)"
+      pattern="[0-9]{10}"
+      (input)="onMobileInput($event)"
+    >
     </ion-input>
   </ion-item>
 
-  <ion-item  *ngIf="isSendOTP" lines="none" class="border m-10 rounded-2xl mx-auto w-auto md:w-96 mt-20  flex ">
-    <ion-input type="text"  class=" focus:outline-none input w-auto inputmode" placeholder="Enter Your Name " [(ngModel)]="name" [ngModelOptions]="{standalone:true}" >
+  <ion-item
+    *ngIf="isSendOTP"
+    lines="none"
+    class="border m-4 rounded-2xl mx-auto w-auto md:w-96 mt-4 flex"
+  >
+    <ion-icon name="clipboard-outline"></ion-icon>
+    <ion-input
+      type="text"
+      class="focus:outline-none input w-auto inputmode"
+      placeholder="Enter Your Name "
+      [(ngModel)]="name"
+      [ngModelOptions]="{ standalone: true }"
+    >
     </ion-input>
   </ion-item>
 
-  <ion-item  *ngIf="isSendOTP" lines="none" class="border m-10 rounded-2xl mx-auto w-auto md:w-96 mt-20  flex ">
-    <ion-input type="email"  class=" focus:outline-none input w-auto inputmode" placeholder="Enter Your Email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}" >
+  <ion-item
+    *ngIf="isSendOTP"
+    lines="none"
+    class="border m-4 rounded-2xl mx-auto w-auto md:w-96 mt-4 flex"
+  >
+    <ion-icon name="mail-outline"></ion-icon>
+    <ion-input
+      type="email"
+      class="focus:outline-none input w-auto inputmode"
+      placeholder="Enter Your Email"
+      [(ngModel)]="email"
+      [ngModelOptions]="{ standalone: true }"
+    >
     </ion-input>
   </ion-item>
 
-  <!-- <ion-button *ngIf="isSendOTP"shape="round" class="flex justify-center mx-auto w-auto mt-20 h-12 md:w-96  "
-    color="secondary" (click)="sendOTP()">Send Otp</ion-button> -->
+  <ng-otp-input
+    *ngIf="isOTPSent"
+    class="flex justify-center"
+    [config]="{ length: 4 }"
+    (onInputChange)="onOtpChange($event)"
+  ></ng-otp-input>
 
+  <ion-button
+    (click)="isOTPSent ? getOtp() : sendOTP()"
+    shape="round"
+    class="flex justify-center mx-auto w-auto h-12 md:w-96"
+    color="secondary"
+  >
+    <span>{{ isOTPSent ? "Continue" : "SEND OTP" }}</span></ion-button
+  >
 
-  
-
-  <ng-otp-input  *ngIf="isOTPSent" class="flex justify-center" [config]="{length:4}" (onInputChange)="onOtpChange($event)" ></ng-otp-input>
-  
-  <ion-button  (click)="isOTPSent ? getOtp(): sendOTP()"  shape="round" class="flex justify-center mx-auto w-auto h-12 md:w-96  "
-    color="secondary" >  <span>{{(isOTPSent ? 'Continue':'SEND OTP')}}</span></ion-button>
-
-  <div class="text-center mt-8 text-xs">By Clicking on Continue, you are agree to <br>
+  <div class="text-center mt-8 text-xs">
+    By Clicking on Continue, you are agree to <br />
     <span class="text-orange-500">Privacy Policy</span>
-    and <span  class="text-orange-500">Terms & Conditions</span>
+    and <span class="text-orange-500">Terms & Conditions</span>
   </div>
 </ion-content>
-
-
-

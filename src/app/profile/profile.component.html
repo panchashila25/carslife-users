@@ -1,9 +1,9 @@
-<ion-content>
-  <ion-card-header color="primary">
-  <div class="flex">
+<ion-content >
+  <ion-card-header color="primary"*ngFor="let item of list" >
+  <div class="flex" >
     <img src="/assets/icon/user1.avif" width="20%" alt="" height="20%" class="rounded-3xl">
-    <div><h1 class="flex-1 p-2">Krushna Deshmukh <button><ion-icon name="pencil"></ion-icon></button></h1>
-    <h1 class="p-2">999999999</h1></div>
+    <div><h1 class="flex-1 p-2">{{item.name}} <button><ion-icon name="pencil"></ion-icon></button></h1>
+    <h1 class="p-2">{{item.mobile}}</h1></div>
 
   </div>
 </ion-card-header>
