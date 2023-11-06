@@ -20,7 +20,9 @@ export class ApiService {
   login(data:any){
     console.log(data)
     return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
-      headers:this._header
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
     .pipe(map((data,re)=>{
       return data;
@@ -110,11 +112,21 @@ register(data:any){
       }));
   }
 
+// send otp
+  sendOTP(data: any) {
+    return this.http.post<any>(`${environment.baseURL}auth/sendOTP`, data, { 
+      headers:
+       { 'Content-Type': 'application/json' }
+       })
+      .pipe(map((data: any) => {
+        return data;
+      }));
+  }
 
 
   // Get Dealers
-  getAllUser(data:any) {
-    return this.http.post < any > (`${environment.baseURL}user/get`,data,{
+  getAllUser(data:any, page: number = 1, limit: number = 25, searchTerm: any) {
+    return this.http.post < any > (`${environment.baseURL}user/get` + '?page=' + page + '&limit=' + limit + '&searchTerm=' + searchTerm,data,{
       headers: {
         'Content-Type': 'application/json'
       }

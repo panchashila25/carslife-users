@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { getFirebaseBackend } from '../../authUtils';
 import { User } from '../models/auth.models';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';

@@ -19,7 +19,7 @@ export class SelectCarComponent  implements OnInit {
   constructor(private apiService:ApiService) { }
 
   ngOnInit() {
-     this.apiService.getAllUser({}).subscribe((cdata:any)=>{
+     this.apiService.getAllUser({},1,100000,"").subscribe((cdata:any)=>{
       this.list=cdata.data
       console.log(this.list)
      })
