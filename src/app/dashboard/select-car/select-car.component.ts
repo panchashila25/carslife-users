@@ -1,3 +1,4 @@
+import { ApiService } from 'src/app/core/services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,12 +12,18 @@ export class SelectCarComponent  implements OnInit {
    selectedDate:any = "";
    selectedTime:any="";
    segment:any = "Upcoming";
+   list:any=[];
   
    istimeOpen= false ;
  
-  constructor() { }
+  constructor(private apiService:ApiService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+     this.apiService.getAllUser({}).subscribe((cdata:any)=>{
+      this.list=cdata.data
+      console.log(this.list)
+     })
+  }
   changeSegment(event:any){
     this.segment = event.detail.value
   }
@@ -26,4 +33,6 @@ export class SelectCarComponent  implements OnInit {
   timeOpen(){
     this.istimeOpen = !this.istimeOpen;
   }
+
+  
 }

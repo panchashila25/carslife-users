@@ -4,21 +4,19 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { DashboardComponent } from './dashboard.component';
-import { CardsComponent } from './cards/cards.component';
 import { FormsModule } from '@angular/forms';
 import { SelectCarComponent } from './select-car/select-car.component';
 import { PageComponent } from './page/page.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent,CardsComponent,SelectCarComponent,PageComponent],
+  declarations: [DashboardComponent,SelectCarComponent,PageComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     IonicModule.forRoot(),
     FormsModule,
-    
-    
+        
   ]
 })
 export class DashboardModule {

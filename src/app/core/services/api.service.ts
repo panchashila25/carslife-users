@@ -99,8 +99,8 @@ register(data:any){
 
 
   // Create dealers
-  createDealers(data: any) {
-    return this.http.post < any > (`${environment.baseURL}dealers`, data, {
+  createUser(data: any) {
+    return this.http.post < any > (`${environment.baseURL}user`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -113,8 +113,8 @@ register(data:any){
 
 
   // Get Dealers
-  getAllDealers(data:any) {
-    return this.http.post < any > (`${environment.baseURL}dealers/get`,data,{
+  getAllUser(data:any) {
+    return this.http.post < any > (`${environment.baseURL}user/get`,data,{
       headers: {
         'Content-Type': 'application/json'
       }
