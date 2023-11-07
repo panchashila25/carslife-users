@@ -137,6 +137,20 @@ register(data:any){
 
 
 
+  // Get all driver
+  getAllDrivers(data:any) {
+    return this.http.post < any > (`${environment.baseURL}driver/get`,data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+      })
+      .pipe(map((data: any) => {
+        return data;
+      }));
+  }
+
+
+
   // Update Dealers
   updateDealers(id:any,data:any){
     return this.http.put<any>(`${environment.baseURL}dealers/`+id,data,{

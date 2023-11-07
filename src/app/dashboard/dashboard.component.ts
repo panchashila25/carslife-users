@@ -117,17 +117,6 @@ export class DashboardComponent  implements OnInit {
   return deg * (Math.PI / 180);
 }
 
-
-
-
-
-
-
-
-
-
-
-
   //LOAD THE MAP ONINIT.
 
 
