@@ -32,6 +32,12 @@ export class DashboardComponent  implements OnInit {
    placeid: any;
    GoogleAutocomplete: any;
    searchesData:any = [];
+   pickuplatitude:any;
+   pickuplongitude:any;
+   droplatitude:any;
+   droplongitude:any;
+   distance:any
+   
   
  
 
@@ -43,7 +49,9 @@ export class DashboardComponent  implements OnInit {
     }
    
 
-  ngOnInit() {}
+  ngOnInit() {
+  
+  }
 
   setFromOpen(){
     this.isFromDateModalOpen = !this.isFromDateModalOpen;
@@ -67,17 +75,59 @@ export class DashboardComponent  implements OnInit {
       pickupLocation: this.selectedPlace,
       dropLocation: this.dropPlace,
       pickupdate:this.selectedDate,
-      dropDate:this.selectedTime
+      dropDate:this.selectedTime,
+      distance:this.calculateDistance(this.pickuplatitude, this.pickuplongitude, this.droplatitude,this.droplongitude)
+    
     })
      console.log(data)
      this.api.createUser(data).subscribe((cdata:any) => {
+         
          console.log(cdata)
-         this.router.navigate (['/tabs/dashboard/selectcar'])
+         this.router.navigate (['/tabs/dashboard/selectcar'],
+         {
+          queryParams:{data:data}
+         })
+
+        
      })
     
   }
 
+// calculation of distance
+
+   calculateDistance(pickuplatitude:any, pickuplongitude: any, droplatitude: any, droplongitude:any) {
+    
+  let R = 6371; // Radius of the Earth in kilometers
+  let dLat = this.deg2rad(droplatitude -pickuplatitude );
+  console.log(dLat)
+  let dLon = this.deg2rad(droplongitude - pickuplongitude);
+  let a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(this.deg2rad(pickuplatitude)) * Math.cos(this.deg2rad(droplatitude)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  let distance = R * c; // Distance in kilometers
+   console.log(`Distance: ${distance} km`);
+  return distance;
+  
+}
+//d = 2r * asin(sqrt(hav(pickuplatitude - lat2) + cos(lat1) * cos(lat2) * hav(lon1 - lon2)))
  
+ deg2rad(deg: any) {
+  return deg * (Math.PI / 180);
+}
+
+
+
+
+
+
+
+
+
+
+
+
   //LOAD THE MAP ONINIT.
 
 
@@ -98,17 +148,24 @@ export class DashboardComponent  implements OnInit {
   //wE CALL THIS FROM EACH ITEM.
   SelectSearchResult(item: any) {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
-    // alert(JSON.stringify(item))      
+    // alert(JSON.stringify(item))  
+    console.log(item)    
     this.selectedPlace = item.label
+    this.pickuplatitude=item.latitude
+    this.pickuplongitude=item.longitude
+
 
 
   }
    //wE CALL THIS FROM EACH ITEM.
    SelectSearchResults(item: any) {
     ///WE CAN CONFIGURE MORE COMPLEX FUNCTIONS SUCH AS UPLOAD DATA TO FIRESTORE OR LINK IT TO SOMETHING
-    // alert(JSON.stringify(item))      
+    // alert(JSON.stringify(item))  
+    console.log(item)    
     this.dropPlace = item.label
-
+    this.droplatitude=item.latitude
+    this.droplongitude=item.longitude
+     
 
   }
   

@@ -1,5 +1,6 @@
 import { ApiService } from 'src/app/core/services/api.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-select-car',
@@ -15,14 +16,40 @@ export class SelectCarComponent  implements OnInit {
    list:any=[];
   
    istimeOpen= false ;
+   day:any=""
+  distance:any=""
+  totalKm:any=''
+  remainingKm:any=""
+  totalAmount:any=""
+  perKm_charge=10
+  perDay_Km=100
+  perDayCharge = 3000;
  
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService, public route:ActivatedRoute ) { }
 
   ngOnInit() {
-     this.apiService.getAllUser({},1,100000,"").subscribe((cdata:any)=>{
-      this.list=cdata.data
+    if(this.totalKm > 100){
+
+      this.remainingKm=this.totalKm-this.perDay_Km;
+
+     this.totalAmount=this.remainingKm*this.perKm_charge+this.perDayCharge;
+     console.log(this.totalAmount)
+     
+}else{
+  this.totalAmount=this.perDayCharge;
+     console.log(this.totalAmount)}
+     
+
+
+     this.route.queryParams.subscribe((data:any)=>{
+      console.log(data)
+      this.list=JSON.parse(data.data)
       console.log(this.list)
+      console.log(this.list.distance)
+      this.list.pickuplocation.split()
+      this.totalKm=this.list.distance0
      })
+     
   }
   changeSegment(event:any){
     this.segment = event.detail.value
@@ -36,3 +63,4 @@ export class SelectCarComponent  implements OnInit {
 
   
 }
+
