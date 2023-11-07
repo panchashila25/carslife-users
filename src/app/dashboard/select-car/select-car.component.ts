@@ -6,7 +6,7 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  ActivatedRoute
+  ActivatedRoute, Router
 } from '@angular/router';
 import {
   environment
@@ -39,7 +39,7 @@ export class SelectCarComponent implements OnInit {
   baseURL = environment.baseURL;
   photo = "";
 
-  constructor(private apiService: ApiService, public route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, public route: ActivatedRoute , public router:Router) {}
 
   ngOnInit() {
 
@@ -87,6 +87,10 @@ export class SelectCarComponent implements OnInit {
   }
   timeOpen() {
     this.istimeOpen = !this.istimeOpen;
+  }
+
+  next(){
+    this.router.navigate(['/tabs/dashboard/carinfo'])
   }
 
 
