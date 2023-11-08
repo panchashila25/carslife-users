@@ -14,7 +14,7 @@
       </ion-segment>
       <ion-segment class="text-start px-4 py-2">
         <ion-card-subtitle>
-          <span class="font-extrabold text-black">Indica , Swift </span>
+          <span class="font-extrabold text-black">{{list.brandName}} </span>
           <span class=" text-gray-700">or Similar</span>
         </ion-card-subtitle>
         <ion-card-subtitle>
@@ -31,10 +31,10 @@
       <ion-segment class="  ">
         <ion-card class="grid grid-cols-8 rounded-2xl p-2  border-black">
           <img src="assets/icon/location.png" class=" w-7 mx-2 pt-1">
-          <ion-card-subtitle class="pl-2 text-start col-span-7"> <span class="font-bold text-black"><span>300</span>km
+          <ion-card-subtitle class="pl-2 text-start col-span-7"> <span class="font-bold text-black"><span>{{list.packageKm}}</span>km
               included. </span>
             <span class="text-[0.8em] text-black">after <span>300</span>km extra usage to be charged at
-              ₹<span>17</span>/km to be paid directly to driver.</span>
+              ₹<span>{{list.ratePerKm}}</span>/km to be paid directly to driver.</span>
           </ion-card-subtitle>
         </ion-card>
         <ion-card class="grid grid-cols-8 rounded-2xl p-3  border-black">

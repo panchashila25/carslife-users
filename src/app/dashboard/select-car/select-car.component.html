@@ -69,8 +69,8 @@
         </ion-card>
       </ion-card>
     </div>
-  <div class="" *ngFor="let item of data">
-      <ion-card class=" bg-white rounded-2xl  h-52 w-auto ml-4 mr-4 mx-auto grid grid-cols-6 pt-2  ybox">
+  <div class="" *ngFor="let item of data ;let i=index">
+      <ion-card class=" bg-white rounded-2xl   w-auto ml-4 mr-4 mx-auto grid grid-cols-6 pt-2  ybox">
         <ion-card-subtitle class=" col-span-2 ml-3 block">
           <span class="text-black  text_card">
             {{item.brandName}}<br>
@@ -89,7 +89,7 @@
           </span>
           
         </div>
-        <button class=" col-span-6 m-4 p-2 rounded-2xl bg-blue-800 text-white text-center" (click)="next()">Select Car</button>
+        <button class=" col-span-6 m-4 p-2 rounded-2xl bg-blue-800 text-white text-center" (click)="next(i)">Select Car</button>
       </ion-card>
     </div>
 

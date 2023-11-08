@@ -49,10 +49,9 @@ export class SelectCarComponent implements OnInit {
       let splitArray = this.list.pickupLocation.split(", ")
       this.totalKm = parseInt(this.list.distance)
 
-      this.apiService.getAllDrivers({
-        city: splitArray[0]
-      }).subscribe((cdata: any) => {
+      this.apiService.getAllDrivers({ city: splitArray[0]}).subscribe((cdata: any) => {
         this.data = cdata.data
+
 
 
 
@@ -89,8 +88,12 @@ export class SelectCarComponent implements OnInit {
     this.istimeOpen = !this.istimeOpen;
   }
 
-  next(){
-    this.router.navigate(['/tabs/dashboard/carinfo'])
+  next(index:any){
+  let data=this.data[index];
+  console.log(data)
+    this.router.navigate(['/tabs/dashboard/carinfo'],{
+      queryParams:{data:JSON.stringify(data)}
+    })
   }
 
 

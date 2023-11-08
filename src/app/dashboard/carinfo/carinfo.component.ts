@@ -12,8 +12,10 @@ list:any=[];
   constructor(public api:ApiService, public route:ActivatedRoute ) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe((data)=>{
-     this.list = JSON.parse(data.data);
+    this.route.queryParams.subscribe((data:any)=>{
+      this.list = JSON.parse(data.data)
+      console.log(this.list)
+        
     })
   }
 
