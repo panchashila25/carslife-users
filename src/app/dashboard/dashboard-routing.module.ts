@@ -16,7 +16,8 @@ const routes: Routes = [
   {
     path:'carinfo',
     component:CarinfoComponent
-  }
+  },
+
 ];
 
 @NgModule({

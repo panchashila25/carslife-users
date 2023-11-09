@@ -15,13 +15,30 @@
       <ion-label color="secondary">Cancelled</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <div *ngIf="segment == 'Upcoming'">
-    Upcoming Works
+  <div *ngIf="segment === 'Upcoming'">
+    <ion-card color="">
+      <ion-item class="text-gray-500">
+        Journey Date:
+        <ion-badge color="secondary" slot="end">Pending</ion-badge>
+      </ion-item>
+      <ion-item class="text-gray-500" >
+        <ion-icon name="arrow-forward-circle"></ion-icon> Pickup Location:
+      </ion-item>
+      <ion-item class="text-gray-500" >
+        <ion-icon name="arrow-back-circle"></ion-icon> Drop Location:
+      </ion-item>
+      <ion-item class="text-gray-500" >
+        Total Fare:
+      </ion-item>
+      <ion-item class="text-gray-500">
+
+      </ion-item>
+    </ion-card>
   </div>
-  <div *ngIf="segment == 'Completed'">
+  <div *ngIf="segment === 'Completed'">
     Completed Works
   </div>
-  <div *ngIf="segment == 'Cancelled'">
+  <div *ngIf="segment === 'Cancelled'">
     Cancelled Works
   </div>
 </ion-content>

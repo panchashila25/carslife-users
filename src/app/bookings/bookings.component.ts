@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-bookings',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class BookingsComponent  implements OnInit {
 
   segment:any = "Upcoming";
-  constructor() { }
+  list:any=[];
+  constructor(public router:Router, public route:ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   changeSegment(event:any){
     this.segment = event.detail.value

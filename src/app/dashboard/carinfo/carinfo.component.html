@@ -14,11 +14,11 @@
       </ion-segment>
       <ion-segment class="text-start px-4 py-2">
         <ion-card-subtitle>
-          <span class="font-extrabold text-black">{{list.brandName}} </span>
+          <span class="font-extrabold text-black">{{dataservice.brandname}} </span>
           <span class=" text-gray-700">or Similar</span>
         </ion-card-subtitle>
         <ion-card-subtitle>
-          <span class=" text-black">Hatchblack | 4 Seater | petrol </span>
+          <span class=" text-black">₹ {{list.calculateTotalAmt}}</span>
 
         </ion-card-subtitle>
       </ion-segment>
@@ -57,8 +57,11 @@
         </ion-card>
 
       </ion-segment>
-
-
+     
     </ion-card>
+    <ion-button class="w-full" (click)="bookCar()">
+      BOOK CAR
+    </ion-button>
+
   </div>
 </ion-content>

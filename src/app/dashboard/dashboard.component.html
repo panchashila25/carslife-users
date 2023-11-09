@@ -15,7 +15,7 @@
               labelPlacement="stacked"
               class="text-[#3D348B]"
               color="primary"
-              placeholder="{{ selectedPlace }}"
+              placeholder="{{ dataservice.selectedPlace }}"
               (click)="placesOpen()"
             >
             </ion-input>
@@ -36,10 +36,9 @@
                 <ion-content>
                   <ion-list>
                     <ion-item
-                      *ngFor="let item of searchesData"
+                      *ngFor="let item of dataservice.searchesData"
                       tappable
                       (click)="SelectSearchResult(item)"
-                      (click)="placesOpen()"
                     >
                       {{ item.label }}
                     </ion-item>
@@ -62,7 +61,7 @@
               class="text-[#3D348B]"
               color="primary"
               (click)="placesDrop()"
-              placeholder="{{ dropPlace }}"
+              placeholder="{{ dataservice.dropPlace }}"
             >
             </ion-input>
             <ion-modal [isOpen]="isPlacesDrop">
@@ -81,10 +80,9 @@
                 <ion-content>
                   <ion-list>
                     <ion-item
-                      *ngFor="let item of searchesData"
+                      *ngFor="let item of dataservice.searchesData"
                       tappable
                       (click)="SelectSearchResults(item)"
-                      (click)="placesDrop()"
                     >
                       {{ item.label }}
                     </ion-item>
@@ -100,7 +98,7 @@
             <ion-input
               label="Pickup Date & Time"
               (click)="timeOpen()"
-              placeholder="{{ selectedTime | date : 'dd MMM, yyyy , hh mm' }}"
+              placeholder="{{dataservice.selectedTime | date : 'dd MMM, yyyy , hh mm' }}"
               labelPlacement="stacked"
               class="text-[#3D348B]"
               color="primary"
@@ -117,7 +115,7 @@
                   </ion-toolbar>
                   <ion-datetime
                     showDefaultButtons="true"
-                    [(ngModel)]="selectedTime"
+                    [(ngModel)]="dataservice.selectedTime"
                   ></ion-datetime>
                 </ion-header>
               </ng-template>
@@ -135,7 +133,7 @@
             ></ion-checkbox>
             <ion-input
               label="I need a round trip"
-              placeholder="{{ selectedDate | date : 'dd MMM, yyyy ,hh  mm' }}"
+              placeholder="{{dataservice. selectedDate | date : 'dd MMM, yyyy ,hh  mm' }}"
               labelPlacement="stacked"
               class="text-[#3D348B]"
               color="primary"
@@ -152,16 +150,16 @@
                   </ion-toolbar>
                   <ion-datetime
                     showDefaultButtons="true"
-                    [(ngModel)]="selectedDate"
+                    [(ngModel)]="dataservice.selectedDate"
                   ></ion-datetime>
                 </ion-header>
               </ng-template>
             </ion-modal>
           </ion-item>
-
           <ion-button mode="ios" expand="block" class="mt-2" (click)="find()"
-            >Find</ion-button
-          >
+            >Find</ion-button>
+
+        
         </ion-card-content>
       </ion-card>
 

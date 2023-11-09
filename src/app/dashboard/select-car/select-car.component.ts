@@ -1,3 +1,7 @@
+
+import {
+  DataService
+} from './../../core/services/data.service';
 import {
   ApiService
 } from 'src/app/core/services/api.service';
@@ -6,7 +10,9 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  ActivatedRoute, Router
+  ActivatedRoute,
+  Data,
+  Router
 } from '@angular/router';
 import {
   environment
@@ -20,65 +26,79 @@ import {
 export class SelectCarComponent implements OnInit {
 
   isFromDateModalOpen = false;
-  selectedDate: any = "";
-  selectedTime: any = "";
+
   segment: any = "Upcoming";
-  list: any = [];
-  carlist: any = [];
+
+
   istimeOpen = false;
-  day: any = ""
-  distance: any = ""
-  totalKm: any = ''
-  remainingKm: any = ""
-  totalAmount: any = ""
-  perKm_charge: any = "";
-  perDay_Km: any = "";
-  perDayCharge = "";
-  data: any = [];
-  packageKm: any = "";
+  packagePrice:any=''
+  ratePerKm: any='';
+
+
   baseURL = environment.baseURL;
   photo = "";
 
-  constructor(private apiService: ApiService, public route: ActivatedRoute , public router:Router) {}
+  constructor(private apiService: ApiService, public route: ActivatedRoute, public router: Router, public dataservice: DataService) {}
 
   ngOnInit() {
 
+    console.log(this.dataservice.selectedPlace)
+    console.log(this.dataservice.dropPlace)
+    console.log(this.dataservice.selectedTime)
+    this.dataservice.distance = this.calculateDistance(this.dataservice.pickuplatitude,this.dataservice.pickuplongitude,this.dataservice.droplatitude,this.dataservice.droplongitude)
+    // this.route.queryParams.subscribe((data: any) => {
+    // this.list = JSON.parse(data.data)
+    //   console.log(this.list)
+    let splitArray = this.dataservice.selectedPlace.split(", ")
+    this.dataservice.totalKm = parseInt(this.dataservice.distance)
 
-    this.route.queryParams.subscribe((data: any) => {
-      this.list = JSON.parse(data.data)
-      let splitArray = this.list.pickupLocation.split(", ")
-      this.totalKm = parseInt(this.list.distance)
-
-      this.apiService.getAllDrivers({ city: splitArray[0]}).subscribe((cdata: any) => {
-        this.data = cdata.data
-
-
-
-
-
-
-      })
+    this.apiService.getAllDrivers({
+      city: splitArray[0]
+    }).subscribe((cdata: any) => {
+      this.dataservice.data = cdata.data
     })
+  }
 
+  calculateDistance(pickuplatitude: any, pickuplongitude: any, droplatitude: any, droplongitude: any) {
 
+    let R = 6371; // Radius of the Earth in kilometers
+    let dLat = this.deg2rad(droplatitude - pickuplatitude);
+    console.log(dLat)
+    let dLon = this.deg2rad(droplongitude - pickuplongitude);
+    let a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(this.deg2rad(pickuplatitude)) * Math.cos(this.deg2rad(droplatitude)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
+    let distance = R * c; // Distance in kilometers
+    console.log(`Distance: ${distance} km`);
+    return distance;
+
+  }
+
+  deg2rad(deg: any) {
+    return deg * (Math.PI / 180);
   }
 
   calculateTotalAmt(item: any) {
-    let totalAmount = 0;
-    let packageKm = item.packageKm
-    if (this.totalKm > packageKm) {
-
-      let remainingKm = this.totalKm - packageKm;
+     let totalAmount = 0;
+     let packageKm = item.packageKm
+      console.log(packageKm)
+    if (this.dataservice.totalKm > packageKm) {
+      let remainingKm = this.dataservice.totalKm - packageKm;
+    
 
       totalAmount = remainingKm * item.ratePerKm + item.packagePrice;
-
+      
     } else {
-      totalAmount = item.ratePerKm * this.totalKm;
+      totalAmount = item.ratePerKm * this.dataservice.totalKm;
     }
+    console.log(totalAmount)
     return totalAmount
+
   }
-  changeSegment(event: any) {
+    
+changeSegment(event: any) {
     this.segment = event.detail.value
   }
   setFromOpen() {
@@ -88,13 +108,22 @@ export class SelectCarComponent implements OnInit {
     this.istimeOpen = !this.istimeOpen;
   }
 
-  next(index:any){
-  let data=this.data[index];
-  console.log(data)
-    this.router.navigate(['/tabs/dashboard/carinfo'],{
-      queryParams:{data:JSON.stringify(data)}
+  next(index: any) {
+    let data = this.dataservice.list;
+    let cdata = this.dataservice.data[index]
+    console.log(data)
+    console.log(cdata)
+    this.router.navigate(['/tabs/dashboard/carinfo'], {
+      queryParams: {
+        list: JSON.stringify(this.dataservice.list),
+        data: JSON.stringify(this.dataservice.data[index])
+      }
     })
   }
 
 
+}
+
+function calculateTotalAmt(item: any, any: any): ((error: any) => void) | null | undefined {
+  throw new Error('Function not implemented.');
 }

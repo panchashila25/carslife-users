@@ -3,10 +3,10 @@
       <ion-card lines="none" class="bg-[#3D348B]  h-72  w-full   md:w-96 m-0 mx-auto  ">
         <ion-card-content >
          <button [routerLink]="['/tabs/dashboard']"> <ion-icon class="   text-xl text-white float-left" name="arrow-back-outline"></ion-icon></button>
-          <ion-card-subtitle class="  text-center text-white">{{list .pickupLocation }}</ion-card-subtitle>
-          <ion-card-subtitle class="  text-center text-white">{{list.dropLocation}} <br>
-            <ion-card-subtitle class="  text-center text-white">{{list .pickupdate }}</ion-card-subtitle>
-            <ion-card-subtitle class="  text-center text-white">{{list .dropDate }}</ion-card-subtitle>
+          <ion-card-subtitle class="  text-center text-white">{{dataservice.selectedPlace }}</ion-card-subtitle>
+          <ion-card-subtitle class="  text-center text-white">{{dataservice.dropPlace}} <br>
+            <ion-card-subtitle class="  text-center text-white">{{dataservice.selectedTime }}</ion-card-subtitle>
+            <ion-card-subtitle class="  text-center text-white">{{dataservice .selectedDate }}</ion-card-subtitle>
             <button class="text-orange-300  border-none  mx-auto">Modify Booking</button>
           </ion-card-subtitle>
         </ion-card-content>
@@ -69,7 +69,7 @@
         </ion-card>
       </ion-card>
     </div>
-  <div class="" *ngFor="let item of data ;let i=index">
+  <div class="" *ngFor="let item of dataservice.data ;let i=index">
       <ion-card class=" bg-white rounded-2xl   w-auto ml-4 mr-4 mx-auto grid grid-cols-6 pt-2  ybox">
         <ion-card-subtitle class=" col-span-2 ml-3 block">
           <span class="text-black  text_card">

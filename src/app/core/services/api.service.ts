@@ -41,9 +41,9 @@ register(data:any){
 }
 
 
-  // Create Itom
-  createItem(data: any) {
-    return this.http.post < any > (`${environment.baseURL}item`, data, {
+  // Create Bookings
+  createBookings(data: any) {
+    return this.http.post < any > (`${environment.baseURL}bookings`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
