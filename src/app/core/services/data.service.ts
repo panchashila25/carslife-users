@@ -23,7 +23,7 @@ export class DataService {
   data: any = [];
   packageKm: any = "";
   pickupLocation:any="";
-   brandname:any=''
+  brandname:any=''
   pickuplatitude:any;
   pickuplongitude:any;
   droplatitude:any;
@@ -39,6 +39,8 @@ export class DataService {
   label: any;
   latitude: any;
   longitude: any;
+  cdata:any=[]
+  carinfo:any=''
   
 
 

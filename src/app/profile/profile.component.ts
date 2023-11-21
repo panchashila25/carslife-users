@@ -1,6 +1,7 @@
 import { ApiService } from 'src/app/core/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../core/services/auth.service';
+import { Route, Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { AuthenticationService } from '../core/services/auth.service';
 export class ProfileComponent  implements OnInit {
 
   list:any=[];
-  constructor(public api :ApiService ,public Auth:AuthenticationService ) { }
+  constructor(public api :ApiService ,public Auth:AuthenticationService ,private router:Router) { }
 
 
   ngOnInit() {
@@ -23,7 +24,13 @@ export class ProfileComponent  implements OnInit {
       console.log(this.list)
     })
   }
+  logout(){
+      
+      this.router.navigate(['/auth/login']);
+    }
+  
+  }
 
   
 
-}
+

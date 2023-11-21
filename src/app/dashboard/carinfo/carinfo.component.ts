@@ -1,3 +1,5 @@
+import { AuthenticationService } from './../../core/services/auth.service';
+import { User } from './../../core/models/auth.models';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -12,7 +14,7 @@ list:any=[];
 data:any=[];
 calculateTotalAmt:any=[];
 
-  constructor(public api:ApiService, public route:ActivatedRoute ,public router:Router , public dataservice: DataService) { }
+  constructor(public api:ApiService, public route:ActivatedRoute ,public router:Router , public dataservice: DataService,public Auth:AuthenticationService) { }
 
   ngOnInit() {
 
@@ -20,12 +22,21 @@ calculateTotalAmt:any=[];
 
   bookCar(){
     const data =JSON.stringify({
-      data:this.list
+       brandName: this.dataservice.cdata.brandName,
+       totalAmount:this.dataservice.totalAmount,
+       pickupLocation:this.dataservice.selectedPlace,
+       dropLocation:this.dataservice.dropPlace,
+       fromDate:this.dataservice.selectedDate,
+       driver: this.dataservice.cdata._id,
+       user:this.Auth.currentUserValue._id
     })
     console.log(data)
-    this.router.navigate(['/tabs/bookings'],{
-      
+    this.api.createBookings(data).subscribe((cdata:any)=>{
+      console.log(cdata)
     })
+
+  
+    this.router.navigate(['/tabs/bookings'])
      
   }
 

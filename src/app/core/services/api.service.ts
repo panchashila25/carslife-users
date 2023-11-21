@@ -56,8 +56,8 @@ register(data:any){
 
 
 // Get all Itom
-  gatAllItem(data:any) {
-    return this.http.post < any > (`${environment.baseURL}item/get`,data, {
+  getAllBooking(data:any) {
+    return this.http.post < any > (`${environment.baseURL}bookings/get`,data, {
       headers: {
         'Content-Type': 'application/json'
       }

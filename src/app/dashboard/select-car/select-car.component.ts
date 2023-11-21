@@ -1,7 +1,4 @@
-
-import {
-  DataService
-} from './../../core/services/data.service';
+import { DataService } from 'src/app/core/services/data.service';
 import {
   ApiService
 } from 'src/app/core/services/api.service';
@@ -52,9 +49,7 @@ export class SelectCarComponent implements OnInit {
     let splitArray = this.dataservice.selectedPlace.split(", ")
     this.dataservice.totalKm = parseInt(this.dataservice.distance)
 
-    this.apiService.getAllDrivers({
-      city: splitArray[0]
-    }).subscribe((cdata: any) => {
+    this.apiService.getAllDrivers({ city: splitArray[0] }).subscribe((cdata: any) => {
       this.dataservice.data = cdata.data
     })
   }
@@ -63,7 +58,7 @@ export class SelectCarComponent implements OnInit {
 
     let R = 6371; // Radius of the Earth in kilometers
     let dLat = this.deg2rad(droplatitude - pickuplatitude);
-    console.log(dLat)
+    
     let dLon = this.deg2rad(droplongitude - pickuplongitude);
     let a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(this.deg2rad(pickuplatitude)) * Math.cos(this.deg2rad(droplatitude)) *
@@ -83,17 +78,13 @@ export class SelectCarComponent implements OnInit {
   calculateTotalAmt(item: any) {
      let totalAmount = 0;
      let packageKm = item.packageKm
-      console.log(packageKm)
     if (this.dataservice.totalKm > packageKm) {
       let remainingKm = this.dataservice.totalKm - packageKm;
-    
-
       totalAmount = remainingKm * item.ratePerKm + item.packagePrice;
       
     } else {
       totalAmount = item.ratePerKm * this.dataservice.totalKm;
     }
-    console.log(totalAmount)
     return totalAmount
 
   }
@@ -109,16 +100,13 @@ changeSegment(event: any) {
   }
 
   next(index: any) {
-    let data = this.dataservice.list;
+  
     let cdata = this.dataservice.data[index]
-    console.log(data)
+    this.dataservice.cdata=cdata
+    this.dataservice.totalAmount=this.calculateTotalAmt(this.dataservice.data[index])
     console.log(cdata)
-    this.router.navigate(['/tabs/dashboard/carinfo'], {
-      queryParams: {
-        list: JSON.stringify(this.dataservice.list),
-        data: JSON.stringify(this.dataservice.data[index])
-      }
-    })
+    this.router.navigate(['/tabs/dashboard/carinfo'])
+     
   }
 
 

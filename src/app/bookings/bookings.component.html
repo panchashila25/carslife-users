@@ -15,25 +15,32 @@
       <ion-label color="secondary">Cancelled</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <div *ngIf="segment === 'Upcoming'">
+  <div *ngFor="let item of list">
+  <div *ngIf="segment === 'Upcoming'" >
     <ion-card color="">
       <ion-item class="text-gray-500">
-        Journey Date:
-        <ion-badge color="secondary" slot="end">Pending</ion-badge>
+        Journey Date:{{item.fromDate}}
+        <div  *ngIf="item.status ==='pending'">
+        <ion-badge color="secondary" slot="end"  >Pending</ion-badge>
+      </div>
+      <div *ngIf="item.status ==='approve'">
+        <ion-badge color="secondary" slot="end"  >Approve</ion-badge>
+      </div>
       </ion-item>
       <ion-item class="text-gray-500" >
-        <ion-icon name="arrow-forward-circle"></ion-icon> Pickup Location:
+        <ion-icon name="arrow-forward-circle"></ion-icon> Pickup Location:{{item.pickupLocation}}
       </ion-item>
       <ion-item class="text-gray-500" >
-        <ion-icon name="arrow-back-circle"></ion-icon> Drop Location:
+        <ion-icon name="arrow-back-circle"></ion-icon> Drop Location:{{item.dropLocation}}
       </ion-item>
       <ion-item class="text-gray-500" >
-        Total Fare:
+        Total Fare:{{dataservice.totalAmount}}
       </ion-item>
       <ion-item class="text-gray-500">
 
       </ion-item>
     </ion-card>
+  </div>
   </div>
   <div *ngIf="segment === 'Completed'">
     Completed Works
