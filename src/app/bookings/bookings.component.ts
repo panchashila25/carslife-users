@@ -11,8 +11,8 @@ import { AuthenticationService } from '../core/services/auth.service';
 })
 export class BookingsComponent  implements OnInit {
 
-  segment:any = "Upcoming";
-  list:any=[];
+segment:any = "Upcoming";
+list:any=[];
 status: any;
   constructor(public router:Router, public route:ActivatedRoute,public dataservice:DataService,public api:ApiService,public auth:AuthenticationService) { }
 
@@ -20,6 +20,7 @@ status: any;
     this.api.getAllBooking({user:this.auth.currentUserValue._id}).subscribe((cdata:any)=>{
       this.list=cdata.data
       console.log(cdata)
+
     })
   }
 

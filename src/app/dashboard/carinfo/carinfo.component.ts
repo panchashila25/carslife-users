@@ -23,7 +23,7 @@ calculateTotalAmt:any=[];
   bookCar(){
     const data =JSON.stringify({
        brandName: this.dataservice.cdata.brandName,
-       totalAmount:this.dataservice.totalAmount,
+       totalFare:this.dataservice.totalAmount,
        pickupLocation:this.dataservice.selectedPlace,
        dropLocation:this.dataservice.dropPlace,
        fromDate:this.dataservice.selectedDate,
@@ -35,7 +35,7 @@ calculateTotalAmt:any=[];
       console.log(cdata)
     })
 
-  
+    
     this.router.navigate(['/tabs/bookings'])
      
   }

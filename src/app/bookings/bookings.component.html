@@ -20,10 +20,10 @@
     <ion-card color="">
       <ion-item class="text-gray-500">
         Journey Date:{{item.fromDate}}
-        <div  *ngIf="item.status ==='pending'">
+        <div *ngIf="item.status =='pending'">
         <ion-badge color="secondary" slot="end"  >Pending</ion-badge>
       </div>
-      <div *ngIf="item.status ==='approve'">
+      <div *ngIf="item.status =='approve'">
         <ion-badge color="secondary" slot="end"  >Approve</ion-badge>
       </div>
       </ion-item>
@@ -34,7 +34,7 @@
         <ion-icon name="arrow-back-circle"></ion-icon> Drop Location:{{item.dropLocation}}
       </ion-item>
       <ion-item class="text-gray-500" >
-        Total Fare:{{dataservice.totalAmount}}
+        Total Fare:{{item.totalFare}}
       </ion-item>
       <ion-item class="text-gray-500">
 

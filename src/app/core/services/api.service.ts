@@ -55,7 +55,7 @@ register(data:any){
 
 
 
-// Get all Itom
+// Get all booking
   getAllBooking(data:any) {
     return this.http.post < any > (`${environment.baseURL}bookings/get`,data, {
       headers: {
