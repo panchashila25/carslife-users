@@ -26,7 +26,8 @@ calculateTotalAmt:any=[];
        totalFare:this.dataservice.totalAmount,
        pickupLocation:this.dataservice.selectedPlace,
        dropLocation:this.dataservice.dropPlace,
-       fromDate:this.dataservice.selectedDate,
+       fromDate:this.dataservice.selectedTime,
+       toDate:this.dataservice.selectedDate,
        driver: this.dataservice.cdata._id,
        user:this.Auth.currentUserValue._id
     })

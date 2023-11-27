@@ -20,6 +20,7 @@
     <ion-card color="">
       <ion-item class="text-gray-500">
         Journey Date:{{item.fromDate}}
+        <span>{{item.toDate}}</span>
         <div *ngIf="item.status =='pending'">
         <ion-badge color="secondary" slot="end"  >Pending</ion-badge>
       </div>
