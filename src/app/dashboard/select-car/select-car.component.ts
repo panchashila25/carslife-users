@@ -42,6 +42,7 @@ export class SelectCarComponent implements OnInit {
     console.log(this.dataservice.selectedPlace)
     console.log(this.dataservice.dropPlace)
     console.log(this.dataservice.selectedTime)
+    console.log(this.dataservice.selectedDate)
     this.dataservice.distance = this.calculateDistance(this.dataservice.pickuplatitude,this.dataservice.pickuplongitude,this.dataservice.droplatitude,this.dataservice.droplongitude)
     // this.route.queryParams.subscribe((data: any) => {
     // this.list = JSON.parse(data.data)
