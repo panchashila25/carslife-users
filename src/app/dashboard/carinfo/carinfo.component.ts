@@ -1,5 +1,4 @@
 import { AuthenticationService } from './../../core/services/auth.service';
-import { User } from './../../core/models/auth.models';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
